@@ -1,0 +1,219 @@
+﻿@model WebApplication5.Models.SecondSelectionModel
+@{
+    ViewBag.Title = "SecondSelection";
+    Layout = "~/Views/Account/_Layout.cshtml";
+}
+
+
+<div id="global_container" class="container">
+    <div id="screen_overview_container" class="row">
+        <div class="span2 well well-small tab_title">
+            Basic Machine Selection Step 2
+        </div>
+        <div class="span10 well well-small">Here you can select essential accessories of machine based on basic machine selection..</div>
+    </div>
+    <div id="content_container" class="row question_library_container">
+        <div class="span12">
+            <div class="question_library_filter_container row">
+                <div class="span12">
+                    <div class="row">
+                        <div class="span6"><h2 class="machine_name" data-machine_id="8">eGrind 200</h2></div>
+                    </div>
+                    <form class="form-inline basic_machine_select_2_submit" style="margin-bottom:5px;">
+                        <div class="row">
+                            <div class="span6"><h2>Work Head</h2></div>
+                        </div>
+                        <div>
+                            <table class="data_table_type_1 table table-bordered table-hover results_table half_td">
+                                <tbody>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m=>m.clampCenter)</span></td>
+                                        <td>
+                                            @Html.DropDownListFor(model => model.clampCenter,Model.clampCenter.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr class="hydraulic_actuation" style="display:none;">
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m => m.isClamping)</span></td>
+                                        <td>
+                                            @Html.DropDownListFor(model => model.isClamping,Model.isClamping.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="row">
+                            <div class="span6"><h2>Wheel Head</h2></div>
+                        </div>
+                        <div>
+                            <table class="data_table_type_1 table table-bordered table-hover results_table half_td">
+                                <tbody>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(model=> model.wheelSpindle)</span></td>
+                                        <td>
+                                            @Html.DropDownListFor(model=> model.wheelSpindle,Model.wheelSpindle.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(model => model.wheelMotorPower)</span></td>
+                                        <td>
+                                            @Html.DropDownListFor(model=> model.wheelMotorPower,Model.wheelMotorPower.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="span6"><h2>Tail Stock</h2></div>
+                        </div>
+                        <div>
+                            <table class="data_table_type_1 table table-bordered table-hover results_table half_td">
+                                <tbody>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m=> m.centerMT)</span></td>
+                                        <td>
+                                            @Html.DropDownListFor(model=>model.centerMT,Model.centerMT.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m=>m.stroke)</span></td>
+                                        <td>
+                                            @Html.DropDownListFor(model=> model.stroke,Model.stroke.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(model=> model.action)</span></td>
+                                        <td>
+                                            @Html.DropDownListFor(model=> model.action,Model.action.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(model => model.microTaper)</span></td>
+                                        <td>
+                                            @Html.DropDownListFor(model=> model.microTaper,Model.microTaper.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row">
+                            <div class="span6"><h2>Balance Unit</h2></div>
+                        </div>
+                        <div>
+                            <table class="data_table_type_1 table table-bordered table-hover results_table half_td">
+                                <tbody>
+                                    <tr>
+                                        <td><span class="td_heading">Type</span></td>
+                                        <td class="balance_unit_type">Flange Type</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="span6"><h2>Coolant Tank</h2></div>
+                        </div>
+                        <div>
+                            <table class="data_table_type_1 table table-bordered table-hover results_table half_td">
+                                <tbody>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m => m.make)</span></td>
+                                        <td>
+                                            @Html.DropDownListFor(m=>m.make,Model.make.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m =>m.capacity)</span></td>
+                                        <td>
+                                            @Html.DropDownListFor(m =>m.capacity,Model.capacity.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m =>m.pump)</span></td>
+                                        <td>
+                                           @Html.DropDownListFor(m =>m.pump,Model.capacity.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m =>m.chillerUnitRequired)</span></td>
+                                        <td>
+                                           @Html.DropDownListFor(m =>m.chillerUnitRequired,Model.chillerUnitRequired.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr class="chiller_make">
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m =>m.chillerUnitMake)</span></td>
+                                        <td>
+                                           @Html.DropDownListFor(m =>m.chillerUnitMake,Model.chillerUnitMake.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr class="chiller_flow">
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m =>m.chillerFlow)</span></td>
+                                        <td>
+                                           @Html.DropDownListFor(m =>m.chillerFlow,Model.chillerFlow.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="span6"><h2>Glass Scale</h2></div>
+                        </div>
+                        <div>
+                            <table class="data_table_type_1 table table-bordered table-hover results_table half_td">
+                                <tbody>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m =>m.glassScaleOnXAxis)</span></td>
+                                        <td>
+                                            @Html.DropDownListFor(m =>m.glassScaleOnXAxis,Model.glassScaleOnXAxis.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m => m.glassScaleOnZAxis)</span></td>
+                                        <td>
+                                           @Html.DropDownListFor(m =>m.glassScaleOnZAxis,Model.glassScaleOnZAxis.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="span6"><h2>Guaging System</h2></div>
+                        </div>
+                        <div>
+                            <table class="data_table_type_1 table table-bordered table-hover results_table half_td">
+                                <tbody>
+                                    <tr class="guage_make_tr">
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m =>m.gsMake)</span></td>
+                                        <td>
+                                           @Html.DropDownListFor(m =>m.gsMake,Model.gsMake.items,new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr class="guaging_dia_div guaging_results"></tr>
+                                    <tr class="guaging_number guaging_results" style="display:none;">
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m=> m.noGauges)</span></td>
+                                        <td>
+                                            @Html.DropDownListFor(m => m.noGauges,Model.noGauges.items, new { @class = "step_one_one input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr class="guaging_machine_div guaging_results"></tr>
+                                    <tr class="guaging_stroke_div guaging_results"></tr>
+                                    <tr class="guaging_amplifier guaging_results"></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <button type="submit" class="select_basic_machine_2_btn btn btn-success">Select Accessories</button>
+                    </form>
+                </div>
+            </div>
+            <div class="basic_machine_select_2_results_container row">
+                <div class="span12">
+                    <!--Here comes the results-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

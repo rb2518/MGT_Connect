@@ -1,0 +1,55 @@
+﻿@model WebApplication5.Models.admin_users
+    
+<div id="header" class="navbar navbar-fixed-top">
+</div>
+<div id="global_container" class="container">
+    <div id="login_container" class="row">
+        <div class="span12">
+            <div class="well well-small">
+                <center>
+                    <span>Hello <strong>Admin!</strong> Please login with your provided credentials</span>
+                </center>
+            </div>
+        </div>
+        <div id="login_form_container" class="span6 offset3">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+            {
+                
+                @Html.ValidationSummary(true)
+                if(ViewBag.Message != null)
+                {
+                    <div style="border : 1px solid red;">@ViewBag.Message</div>
+                }
+                <div class="control-group">
+                    
+                    <div class="controls">
+                        @Html.LabelFor(a => a.email)
+                        @Html.TextBoxFor(a => a.email)
+                        @Html.ValidationMessageFor(a => a.email)
+        </div>
+                </div>
+                <div class="control-group">
+                    
+                    <div class="controls">
+                        @Html.LabelFor(a => a.password)
+                        @Html.PasswordFor(a => a.password)
+                        @Html.ValidationMessageFor(a => a.password)
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </div>
+                </div>
+            }
+                
+            
+        </div>
+        <div class="span12">
+            <center>
+                <small>In case of any issues with login, push an email to <em>sangeet.aggarwal@vmock.com</em></small>
+            </center>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,240 @@
+﻿@model WebApplication5.Models.InputParameters
+
+@{
+    ViewBag.Title = "Machine_Selection";
+    Layout = "~/Views/Account/_Layout.cshtml";
+}
+<div id="global_container" class="container">
+    <div id="screen_overview_container" class="row">
+        <div class="span2 well well-small tab_title">
+            Basic Machine Selection
+        </div>
+        <div class="span10 well well-small">Here you can select basic machine type based on specific job requirements.</div>
+    </div>
+    <div id="content_container" class="row question_library_container">
+        <div class="span12">
+            <div class="question_library_filter_container row">
+                <div class="span12">
+                    <div>
+                        @using (Ajax.BeginForm("Machine_Selection_Result","Account",new { }, new AjaxOptions { UpdateTargetId = "machineresult",HttpMethod="POST" },new { @class = "form-inline basic_machine_select_submit", @style = "margin-bottom:5px;" }))
+                        {
+                            <div class="row">
+                                <div class="span6"><h2>General requirements</h2></div>
+                            </div>
+
+                            <table class="data_table_type_1 table table-bordered table-hover results_table" >
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="td_heading">
+                                                @Html.DisplayNameFor(m => m.CustomerName)
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.CustomerName)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="td_heading">
+                                                @Html.DisplayNameFor(m => m.ComponentName)
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m=> m.ComponentName)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="td_heading">
+                                                @Html.DisplayNameFor(m => m.OppId)
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.OppId,"MGT_");
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="td_heading">
+                                                @Html.DisplayNameFor(m=> m.LenControl)
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @Html.DropDownListFor(model => model.LenControl.Id, Model.LenControl.items,new { @class= "step_one_one input-small" });
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="td_heading">
+                                                @Html.DisplayNameFor(m=>m.FaceGrinding)
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @Html.DropDownListFor(m=>m.FaceGrinding.Id, Model.FaceGrinding.items,new { @class= "step_one_two input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="td_heading">
+                                                @Html.DisplayNameFor(m=> m.RadGrinding)
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @Html.DropDownListFor(m=>m.RadGrinding.Id,Model.RadGrinding.items,new { @class= "step_one_three input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="td_heading">
+                                                @Html.DisplayNameFor(m=>m.idod)
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @Html.DropDownListFor(m => m.idod.Id, Model.idod.items,new { @class= "step_two input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="td_heading">
+                                                @Html.DisplayNameFor(m => m.MaxJobLen)
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m=>m.MaxJobLen,new { @class= "input-small step_three" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="td_heading">
+                                                @Html.DisplayNameFor(m=>m.PeripheralSpeed)
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @Html.DropDownListFor(m=>m.PeripheralSpeed.Id,Model.PeripheralSpeed.items,new { @class= "step_four input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="td_heading">
+                                                @Html.DisplayNameFor(m=>m.MaxWheelWidth)
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.MaxWheelWidth, new { @class= "input-small step_five" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="td_heading">
+                                                @Html.DisplayNameFor(m=>m.MaxGrindingDia)
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m=>m.MaxGrindingDia, new { @class= "input-small step_six" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="td_heading">
+                                                @Html.DisplayNameFor(m=> m.MaxCompDia)
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.MaxCompDia,new { @class= "input-small step_seven" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m=> m.MaxJobWeight)</span></td>
+                                        <td>
+                                            @Html.TextBoxFor(m=>m.MaxJobWeight,new { @class= "input-small step_eight" })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="span6"><h2>Quality requirements</h2></div>
+                            </div>
+                            <table class="data_table_type_1 table table-bordered table-hover results_table">
+                                <tbody>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m=>m.Mintol)</span></td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Mintol,new { @class= "input-small step_ten" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m=>m.Roughness)</span></td>
+                                        <td>
+                                            @Html.TextBoxFor(m => m.Roughness,new { @class= "input-small step_eleven" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m=>m.MaxLenVar)</span></td>
+                                        <td>
+                                            @Html.TextBoxFor(m=>m.MaxLenVar,new { @class = "input-small step_twelve" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m=>m.automation)</span></td>
+                                        <td>
+                                            @Html.DropDownListFor(m=>m.automation.Id,Model.automation.items,new { @class= "step_thirteen input-small" })
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="td_heading">@Html.DisplayNameFor(m=>m.FileName)</span></td>
+                                        <td>
+                                            <div id="file-uploader-demo1"><div class="qq-uploader"><div class="qq-upload-button upload_button" style="position: relative; overflow: hidden; direction: ltr;">@Html.TextBoxFor(m=>m.FileName,new { @type = "file",@style = "position: absolute; right: 0px; top: 0px; font-family: Arial; font-size: 118px; margin: 0px; padding: 0px; cursor: pointer; opacity: 0;" })  Upload File</div><ul class="qq-upload-list"></ul></div></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <button type="submit" class="select_basic_machine_btn btn btn-success">Select Machine</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        }
+                        
+                            
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="basic_machine_select_results_container row">
+                <div class="span12">
+                    <!--Here comes the results-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <div class="row">
+                <div class="span6">
+                    <h2>Search Results</h2>
+                </div>
+            </div>
+            <table class="data_table_type_1 table table-bordered table-hover results_table">
+                <thead>
+                    <tr>
+                        <th>Sr.No.</th>
+                        <th>Machine Name</th>
+                        <th>Straight/Angular</th>
+                        <th>Peripheral Speed(in MPS)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="machineresult">
+                    <tr data-machine_id="8">
+                        <td>1</td>
+                        <td class="content_text">eGrind 200</td>
+                        <td>Straight</td>
+                        <td class="content_text">45</td>
+                        <td><button class="btn btn-mini btn-primary basic_machine_select_final_btn" type="button">Select</button></td>
+                    </tr>
+                </tbody>
+           </table>
+        </div>
+    </div>
+</div>

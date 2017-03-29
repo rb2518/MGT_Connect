@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div id="header" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="#" class="brand main_logo">MGT Ltd.</a><div class="nav-collapse collapse">
+                    <p class="navbar-text pull-right">
+                        (<a class="navbar-link" href="logout.php">Logout</a>)
+                    </p>
+                    <ul class="nav">
+                        <li>
+                            @Html.ActionLink("Machine Selection", "Index")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Saved Summaries", "Summaries")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Wheel Width Calculator", "Wheel_Width")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Productivity Calculator", "Productivity")
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+        @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/ajax")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="55e6d8a803d24ccf8b8cc70eb64c5807" Name="Diagram1">
+        <EntityTypeShape EntityType="trainingModel1.coolant_tank" Width="1.5" PointX="0.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.guaging_amplifier" Width="1.5" PointX="1" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.guaging_dia_types" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.guaging_dia_types_guaging_machines_mapping" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.guaging_machines" Width="1.5" PointX="6.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.guaging_machines_guaging_amplifier_mapping" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.guaging_make" Width="1.5" PointX="6.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.guaging_slide_stroke" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.machine_param_names" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.machine_param_values" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.machine" Width="1.5" PointX="3.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.saved_summary" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.tailstock_action" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.tailstock_center" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.tailstock_stroke" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.wheel_head_dia" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="trainingModel1.wheel_head_motor" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

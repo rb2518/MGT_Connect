@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="trainingModel1StoreContainer" CdmEntityContainer="MachineParametersContext">
+    <EntitySetMapping Name="coolant_tank">
+      <EntityTypeMapping TypeName="trainingModel1.coolant_tank">
+        <MappingFragment StoreEntitySet="coolant_tank">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="machines_id" ColumnName="machines_id" />
+          <ScalarProperty Name="coolant_capacity" ColumnName="coolant_capacity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="guaging_amplifier">
+      <EntityTypeMapping TypeName="trainingModel1.guaging_amplifier">
+        <MappingFragment StoreEntitySet="guaging_amplifier">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="amplifier" ColumnName="amplifier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="guaging_dia_types">
+      <EntityTypeMapping TypeName="trainingModel1.guaging_dia_types">
+        <MappingFragment StoreEntitySet="guaging_dia_types">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="guaging_dia_types_guaging_machines_mapping">
+      <EntityTypeMapping TypeName="trainingModel1.guaging_dia_types_guaging_machines_mapping">
+        <MappingFragment StoreEntitySet="guaging_dia_types_guaging_machines_mapping">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="guaging_dia_types_id" ColumnName="guaging_dia_types_id" />
+          <ScalarProperty Name="guaging_machines_id" ColumnName="guaging_machines_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="guaging_machines">
+      <EntityTypeMapping TypeName="trainingModel1.guaging_machines">
+        <MappingFragment StoreEntitySet="guaging_machines">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="guaging_make_id" ColumnName="guaging_make_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="guaging_machines_guaging_amplifier_mapping">
+      <EntityTypeMapping TypeName="trainingModel1.guaging_machines_guaging_amplifier_mapping">
+        <MappingFragment StoreEntitySet="guaging_machines_guaging_amplifier_mapping">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="guaging_machines_id" ColumnName="guaging_machines_id" />
+          <ScalarProperty Name="guaging_amplifier_id" ColumnName="guaging_amplifier_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="guaging_make">
+      <EntityTypeMapping TypeName="trainingModel1.guaging_make">
+        <MappingFragment StoreEntitySet="guaging_make">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="make" ColumnName="make" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="guaging_slide_stroke">
+      <EntityTypeMapping TypeName="trainingModel1.guaging_slide_stroke">
+        <MappingFragment StoreEntitySet="guaging_slide_stroke">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="guaging_machines_id" ColumnName="guaging_machines_id" />
+          <ScalarProperty Name="stroke" ColumnName="stroke" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="machine_param_names">
+      <EntityTypeMapping TypeName="trainingModel1.machine_param_names">
+        <MappingFragment StoreEntitySet="machine_param_names">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="param_name" ColumnName="param_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="machine_param_values">
+      <EntityTypeMapping TypeName="trainingModel1.machine_param_values">
+        <MappingFragment StoreEntitySet="machine_param_values">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="machines_id" ColumnName="machines_id" />
+          <ScalarProperty Name="machine_param_names_id" ColumnName="machine_param_names_id" />
+          <ScalarProperty Name="param_value" ColumnName="param_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="machines">
+      <EntityTypeMapping TypeName="trainingModel1.machine">
+        <MappingFragment StoreEntitySet="machines">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="saved_summary">
+      <EntityTypeMapping TypeName="trainingModel1.saved_summary">
+        <MappingFragment StoreEntitySet="saved_summary">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="component_name" ColumnName="component_name" />
+          <ScalarProperty Name="opp_id" ColumnName="opp_id" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="date_time" ColumnName="date_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tailstock_action">
+      <EntityTypeMapping TypeName="trainingModel1.tailstock_action">
+        <MappingFragment StoreEntitySet="tailstock_action">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="machines_id" ColumnName="machines_id" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="priority" ColumnName="priority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tailstock_center">
+      <EntityTypeMapping TypeName="trainingModel1.tailstock_center">
+        <MappingFragment StoreEntitySet="tailstock_center">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="machines_id" ColumnName="machines_id" />
+          <ScalarProperty Name="mt" ColumnName="mt" />
+          <ScalarProperty Name="priority" ColumnName="priority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tailstock_stroke">
+      <EntityTypeMapping TypeName="trainingModel1.tailstock_stroke">
+        <MappingFragment StoreEntitySet="tailstock_stroke">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="machines_id" ColumnName="machines_id" />
+          <ScalarProperty Name="stroke" ColumnName="stroke" />
+          <ScalarProperty Name="priority" ColumnName="priority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wheel_head_dia">
+      <EntityTypeMapping TypeName="trainingModel1.wheel_head_dia">
+        <MappingFragment StoreEntitySet="wheel_head_dia">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="machines_id" ColumnName="machines_id" />
+          <ScalarProperty Name="dia" ColumnName="dia" />
+          <ScalarProperty Name="priority" ColumnName="priority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wheel_head_motor">
+      <EntityTypeMapping TypeName="trainingModel1.wheel_head_motor">
+        <MappingFragment StoreEntitySet="wheel_head_motor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="machines_id" ColumnName="machines_id" />
+          <ScalarProperty Name="power" ColumnName="power" />
+          <ScalarProperty Name="priority" ColumnName="priority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

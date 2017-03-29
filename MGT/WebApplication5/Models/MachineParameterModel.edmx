@@ -1,0 +1,517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="trainingModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="coolant_tank">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="machines_id" Type="int" Nullable="false" />
+          <Property Name="coolant_capacity" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guaging_amplifier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="amplifier" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guaging_dia_types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guaging_dia_types_guaging_machines_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="guaging_dia_types_id" Type="int" Nullable="false" />
+          <Property Name="guaging_machines_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guaging_machines">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="guaging_make_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guaging_machines_guaging_amplifier_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="guaging_machines_id" Type="int" Nullable="false" />
+          <Property Name="guaging_amplifier_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guaging_make">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="make" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guaging_slide_stroke">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="guaging_machines_id" Type="int" Nullable="false" />
+          <Property Name="stroke" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="machine_param_names">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="param_name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="machine_param_values">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="machines_id" Type="int" Nullable="false" />
+          <Property Name="machine_param_names_id" Type="int" Nullable="false" />
+          <Property Name="param_value" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="machines">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="saved_summary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customer_name" Type="varchar(max)" Nullable="false" />
+          <Property Name="component_name" Type="varchar(max)" Nullable="false" />
+          <Property Name="opp_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="data" Type="varchar(max)" Nullable="false" />
+          <Property Name="date_time" Type="datetime2" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tailstock_action">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="machines_id" Type="int" Nullable="false" />
+          <Property Name="action" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="priority" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tailstock_center">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="machines_id" Type="int" Nullable="false" />
+          <Property Name="mt" Type="int" Nullable="false" />
+          <Property Name="priority" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tailstock_stroke">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="machines_id" Type="int" Nullable="false" />
+          <Property Name="stroke" Type="int" Nullable="false" />
+          <Property Name="priority" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wheel_head_dia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="machines_id" Type="int" Nullable="false" />
+          <Property Name="dia" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="priority" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wheel_head_motor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="machines_id" Type="int" Nullable="false" />
+          <Property Name="power" Type="real" Nullable="false" />
+          <Property Name="priority" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="trainingModel1StoreContainer">
+          <EntitySet Name="coolant_tank" EntityType="Self.coolant_tank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="guaging_amplifier" EntityType="Self.guaging_amplifier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="guaging_dia_types" EntityType="Self.guaging_dia_types" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="guaging_dia_types_guaging_machines_mapping" EntityType="Self.guaging_dia_types_guaging_machines_mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="guaging_machines" EntityType="Self.guaging_machines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="guaging_machines_guaging_amplifier_mapping" EntityType="Self.guaging_machines_guaging_amplifier_mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="guaging_make" EntityType="Self.guaging_make" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="guaging_slide_stroke" EntityType="Self.guaging_slide_stroke" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="machine_param_names" EntityType="Self.machine_param_names" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="machine_param_values" EntityType="Self.machine_param_values" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="machines" EntityType="Self.machines" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="saved_summary" EntityType="Self.saved_summary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tailstock_action" EntityType="Self.tailstock_action" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tailstock_center" EntityType="Self.tailstock_center" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tailstock_stroke" EntityType="Self.tailstock_stroke" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wheel_head_dia" EntityType="Self.wheel_head_dia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="wheel_head_motor" EntityType="Self.wheel_head_motor" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="trainingModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="coolant_tank">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="machines_id" Type="Int32" Nullable="false" />
+          <Property Name="coolant_capacity" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guaging_amplifier">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="amplifier" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guaging_dia_types">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guaging_dia_types_guaging_machines_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="guaging_dia_types_id" Type="Int32" Nullable="false" />
+          <Property Name="guaging_machines_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guaging_machines">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="guaging_make_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guaging_machines_guaging_amplifier_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="guaging_machines_id" Type="Int32" Nullable="false" />
+          <Property Name="guaging_amplifier_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guaging_make">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="make" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="guaging_slide_stroke">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="guaging_machines_id" Type="Int32" Nullable="false" />
+          <Property Name="stroke" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="machine_param_names">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="param_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="machine_param_values">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="machines_id" Type="Int32" Nullable="false" />
+          <Property Name="machine_param_names_id" Type="Int32" Nullable="false" />
+          <Property Name="param_value" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="machine">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="saved_summary">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customer_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="component_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="opp_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_time" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="tailstock_action">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="machines_id" Type="Int32" Nullable="false" />
+          <Property Name="action" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="priority" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tailstock_center">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="machines_id" Type="Int32" Nullable="false" />
+          <Property Name="mt" Type="Int32" Nullable="false" />
+          <Property Name="priority" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tailstock_stroke">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="machines_id" Type="Int32" Nullable="false" />
+          <Property Name="stroke" Type="Int32" Nullable="false" />
+          <Property Name="priority" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wheel_head_dia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="machines_id" Type="Int32" Nullable="false" />
+          <Property Name="dia" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="priority" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="wheel_head_motor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="machines_id" Type="Int32" Nullable="false" />
+          <Property Name="power" Type="Single" Nullable="false" />
+          <Property Name="priority" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MachineParametersContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="coolant_tank" EntityType="Self.coolant_tank" />
+          <EntitySet Name="guaging_amplifier" EntityType="Self.guaging_amplifier" />
+          <EntitySet Name="guaging_dia_types" EntityType="Self.guaging_dia_types" />
+          <EntitySet Name="guaging_dia_types_guaging_machines_mapping" EntityType="Self.guaging_dia_types_guaging_machines_mapping" />
+          <EntitySet Name="guaging_machines" EntityType="Self.guaging_machines" />
+          <EntitySet Name="guaging_machines_guaging_amplifier_mapping" EntityType="Self.guaging_machines_guaging_amplifier_mapping" />
+          <EntitySet Name="guaging_make" EntityType="Self.guaging_make" />
+          <EntitySet Name="guaging_slide_stroke" EntityType="Self.guaging_slide_stroke" />
+          <EntitySet Name="machine_param_names" EntityType="Self.machine_param_names" />
+          <EntitySet Name="machine_param_values" EntityType="Self.machine_param_values" />
+          <EntitySet Name="machines" EntityType="Self.machine" />
+          <EntitySet Name="saved_summary" EntityType="Self.saved_summary" />
+          <EntitySet Name="tailstock_action" EntityType="Self.tailstock_action" />
+          <EntitySet Name="tailstock_center" EntityType="Self.tailstock_center" />
+          <EntitySet Name="tailstock_stroke" EntityType="Self.tailstock_stroke" />
+          <EntitySet Name="wheel_head_dia" EntityType="Self.wheel_head_dia" />
+          <EntitySet Name="wheel_head_motor" EntityType="Self.wheel_head_motor" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="trainingModel1StoreContainer" CdmEntityContainer="MachineParametersContext">
+          <EntitySetMapping Name="coolant_tank">
+            <EntityTypeMapping TypeName="trainingModel1.coolant_tank">
+              <MappingFragment StoreEntitySet="coolant_tank">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="machines_id" ColumnName="machines_id" />
+                <ScalarProperty Name="coolant_capacity" ColumnName="coolant_capacity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="guaging_amplifier">
+            <EntityTypeMapping TypeName="trainingModel1.guaging_amplifier">
+              <MappingFragment StoreEntitySet="guaging_amplifier">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="amplifier" ColumnName="amplifier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="guaging_dia_types">
+            <EntityTypeMapping TypeName="trainingModel1.guaging_dia_types">
+              <MappingFragment StoreEntitySet="guaging_dia_types">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="guaging_dia_types_guaging_machines_mapping">
+            <EntityTypeMapping TypeName="trainingModel1.guaging_dia_types_guaging_machines_mapping">
+              <MappingFragment StoreEntitySet="guaging_dia_types_guaging_machines_mapping">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="guaging_dia_types_id" ColumnName="guaging_dia_types_id" />
+                <ScalarProperty Name="guaging_machines_id" ColumnName="guaging_machines_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="guaging_machines">
+            <EntityTypeMapping TypeName="trainingModel1.guaging_machines">
+              <MappingFragment StoreEntitySet="guaging_machines">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="guaging_make_id" ColumnName="guaging_make_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="guaging_machines_guaging_amplifier_mapping">
+            <EntityTypeMapping TypeName="trainingModel1.guaging_machines_guaging_amplifier_mapping">
+              <MappingFragment StoreEntitySet="guaging_machines_guaging_amplifier_mapping">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="guaging_machines_id" ColumnName="guaging_machines_id" />
+                <ScalarProperty Name="guaging_amplifier_id" ColumnName="guaging_amplifier_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="guaging_make">
+            <EntityTypeMapping TypeName="trainingModel1.guaging_make">
+              <MappingFragment StoreEntitySet="guaging_make">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="make" ColumnName="make" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="guaging_slide_stroke">
+            <EntityTypeMapping TypeName="trainingModel1.guaging_slide_stroke">
+              <MappingFragment StoreEntitySet="guaging_slide_stroke">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="guaging_machines_id" ColumnName="guaging_machines_id" />
+                <ScalarProperty Name="stroke" ColumnName="stroke" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="machine_param_names">
+            <EntityTypeMapping TypeName="trainingModel1.machine_param_names">
+              <MappingFragment StoreEntitySet="machine_param_names">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="param_name" ColumnName="param_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="machine_param_values">
+            <EntityTypeMapping TypeName="trainingModel1.machine_param_values">
+              <MappingFragment StoreEntitySet="machine_param_values">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="machines_id" ColumnName="machines_id" />
+                <ScalarProperty Name="machine_param_names_id" ColumnName="machine_param_names_id" />
+                <ScalarProperty Name="param_value" ColumnName="param_value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="machines">
+            <EntityTypeMapping TypeName="trainingModel1.machine">
+              <MappingFragment StoreEntitySet="machines">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="saved_summary">
+            <EntityTypeMapping TypeName="trainingModel1.saved_summary">
+              <MappingFragment StoreEntitySet="saved_summary">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+                <ScalarProperty Name="component_name" ColumnName="component_name" />
+                <ScalarProperty Name="opp_id" ColumnName="opp_id" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="date_time" ColumnName="date_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tailstock_action">
+            <EntityTypeMapping TypeName="trainingModel1.tailstock_action">
+              <MappingFragment StoreEntitySet="tailstock_action">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="machines_id" ColumnName="machines_id" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tailstock_center">
+            <EntityTypeMapping TypeName="trainingModel1.tailstock_center">
+              <MappingFragment StoreEntitySet="tailstock_center">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="machines_id" ColumnName="machines_id" />
+                <ScalarProperty Name="mt" ColumnName="mt" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tailstock_stroke">
+            <EntityTypeMapping TypeName="trainingModel1.tailstock_stroke">
+              <MappingFragment StoreEntitySet="tailstock_stroke">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="machines_id" ColumnName="machines_id" />
+                <ScalarProperty Name="stroke" ColumnName="stroke" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wheel_head_dia">
+            <EntityTypeMapping TypeName="trainingModel1.wheel_head_dia">
+              <MappingFragment StoreEntitySet="wheel_head_dia">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="machines_id" ColumnName="machines_id" />
+                <ScalarProperty Name="dia" ColumnName="dia" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="wheel_head_motor">
+            <EntityTypeMapping TypeName="trainingModel1.wheel_head_motor">
+              <MappingFragment StoreEntitySet="wheel_head_motor">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="machines_id" ColumnName="machines_id" />
+                <ScalarProperty Name="power" ColumnName="power" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
